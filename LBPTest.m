@@ -5,7 +5,7 @@ figure
 imshow(greyFingerprint)
 title('Original Fingerprint')
 
-lbp = extractLBPFeatures(greyFingerprint);
+lbp = extractLBPFeatures(greyFingerprint,'Normalization','None');
 
 figure
 histogram(lbp);
