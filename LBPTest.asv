@@ -7,10 +7,9 @@ figure
 imshow(greyFingerprint)
 title('Original Fingerprint')
 
-lbpFeatures = extractLBPFeatures(greyFingerprint,'Normalization','None');
-all = sum(lbpFeatures);
-diagram = lbpFeatures/all;
+lbpFeatures = extractLBPFeatures(greyFingerprint);
+hallo = sum(lbpFeatures);
 
 figure
-bar(diagram);
+bar(lbpFeatures);
 title ('Histogram of s1');
