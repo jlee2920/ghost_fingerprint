@@ -3,14 +3,15 @@
 %iterations in line 26 to get better results but can take up to 1 min on my
 %computer.
 
-I = imread('s1.png');
+I = imread('s8.png');
 I=rgb2gray(I);
 imshow(I)
 hold on
 title('Original Image')
+[x,y] = size(I);
 
 mask = false(size(I));
-mask(1:506,1:401) = true;
+mask(1:x,1:y) = true;
 visboundaries(mask,'Color','b');
 
 bw = activecontour(I, mask, 500, 'edge');
