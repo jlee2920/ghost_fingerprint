@@ -1,5 +1,7 @@
-fingerprint = imread('s2.png');
+fingerprint = imread('s8.png');
 greyFingerprint = rgb2gray(fingerprint);
+test = size(greyFingerprint);
+test2 = prod(floor(size(greyFingerprint)./[3 3]));
 
 figure
 imshow(greyFingerprint)
@@ -61,11 +63,13 @@ figure
 imshow(Aseg1);
 
 
-lbpFeatures = extractLBPFeatures(Aseg2,'Normalization','None','CellSize',[50 50],'Radius', 10, 'NumNeighbors', 24);
+lbpFeatures = extractLBPFeatures(Aseg1,'Normalization','None','CellSize',[3 3]);
 h=0
-[numRowsAseg1, numColsAseg1] = size(Aseg2);
-cellNum = floor(numRowsAseg1/50)*floor(numColsAseg1/50)
-for j=1:cellNum   
+cellNum = numRows/3*numCols/3
+for j=1:cellNu
+    if j == 59
+       test = 3; 
+    end
     h=(j-1)*59+1
     all = sum(lbpFeatures(h:h+58));
     if h == 1
