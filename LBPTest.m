@@ -1,3 +1,5 @@
+%%https://uk.mathworks.com/help/images/texture-segmentation-using-gabor-filters.html
+
 fingerprint = imread('s2.png');
 greyFingerprint = rgb2gray(fingerprint);
 
