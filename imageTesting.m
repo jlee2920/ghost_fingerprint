@@ -1,5 +1,8 @@
+I = imread('s3.png');
+B = blockproc(I,[100 100],@(x) lbpGhost(x.data)) 
+
 function distance = lbpGhost(testImage)
-    fingerprint = imread('s7normal100.png');
+    fingerprint = imread('s7normal75.png');
     greyFingerprint = rgb2gray(fingerprint);
     %testfingerprint = imread('s8ghost100.png');
     ghostGreyFingerprint = rgb2gray(testImage);
@@ -55,7 +58,7 @@ function distance = lbpGhost(testImage)
     subplot(1,2,2);bar(testRelativeValues);
     title ('Histogram of test')
 
-    %chi square
+    %chi square of absolute values
     m = size(lbpFeatures,1);  n = size(testlbpFeatures,1);
     mOnes = ones(1,m); D = zeros(m,n);
     for i=1:n
@@ -64,5 +67,6 @@ function distance = lbpGhost(testImage)
       D(:,i) = sum( d.^2 ./ (s+eps), 2 );
     end
     D = D/2;
+
     distance = D;
 end 
