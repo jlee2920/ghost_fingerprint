@@ -1,4 +1,4 @@
-%choose a folder with only ghost / no ghost pictures
+%choose the folder of the pictures
 myFolder = 'D:\20180518\Downloads\png.001\png\all\noghost\';
 filePattern = fullfile(myFolder, '*.png');
 bmpFiles = dir(filePattern);
